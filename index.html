@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VentShield | Ultimate Air Safeguard</title>
+    <link rel="icon" size="64*64" type="image/jpg" href="IMAGES/download.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- CORE STYLES --- */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+        
+         * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body { background-color: #f8f9fa; color: #333; line-height: 1.6; }
+
+        /* --- PROMO BAR --- */
+        .static-promo-bar {
+            background: #0f172a;
+            color: white;
+            padding: 10px 5%;
+            font-size: 13px;
+            position: relative;
+            z-index: 1100;
+        }
+        .promo-container { display: flex; justify-content: center; align-items: center; gap: 20px; }
+        .promo-link { color: #10b981; font-weight: bold; text-decoration: none; border: 1px solid #10b981; padding: 2px 8px; border-radius: 4px; }
+
+        /* --- FIXED HEADER --- */
+        header {
+            position: fixed;
+          
+            width: 100%;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.95);
+            padding: 0 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-img { height: 140px; width: auto; transition: transform 0.3s ease;margin-left: -100px; }
+        .logo-img:hover { transform: scale(1.05); }
+
+        nav ul { display: flex; list-style: none; gap: 40px; align-items: center; }
+        nav a { color: #fff; text-decoration: none; font-size: 14px; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
+        nav a:hover { color: #10b981; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%; left: 50%;
+            min-width: 100%; min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.65);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            color: white;
+            padding-top: 80px; /* Offset for fixed header */
+        }
+
+        .hero-content h1 { font-size: clamp(36px, 6vw, 68px); font-weight: 800; margin-bottom: 20px; line-height: 1.1; }
+        .hero-content p { font-size: 20px; color: #10b981; margin-bottom: 40px; font-weight: 500; }
+
+        .btn-quote {
+            background: #10b981; color: white; padding: 15px 35px;
+            border-radius: 50px; font-weight: 800; text-decoration: none;
+            text-transform: uppercase; transition: 0.3s; border: 2px solid #10b981;
+            display: inline-block;
+        }
+        .btn-quote:hover { background: white; color: #10b981; border-color: white; transform: translateY(-3px); }
+         /* --- ABOUT & IMPORTANCE SECTIONS --- */
+       .section-padding { padding: 100px 8%; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 38px; color: #10b981; font-weight: 800; margin-bottom: 10px; }
+        .section-title p { color: #666; font-size: 18px; }
+
+        .about-container { display: flex; align-items: center; gap: 50px; margin-bottom: 50px; }
+        .about-img { flex: 1; }
+        .about-img img { width: 100%; border-radius: 15px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .about-content { flex: 1.2; }
+        .about-content h3 { font-size: 30px; margin-bottom: 20px; color: #333; }
+        .about-content p { margin-bottom: 20px; color: #555; }
+
+        .about-features { display: flex; justify-content: space-between; gap: 20px; text-align: center; margin-top: 40px; }
+        .feat-card { flex: 1; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .feat-card i { font-size: 35px; color: #10b981; margin-bottom: 15px; }
+        .feat-card h4 { color: #10b981; margin-bottom: 8px; }
+
+
+        /* Importance Section Styling */
+        .importance-section { padding: 100px 8%; background: #f1f5f9; }
+        .importance-container { display: flex; gap: 30px; }
+        .importance-card { flex: 1; background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card-image img { width: 100%; height: 250px; object-fit: cover; }
+        .card-body { padding: 30px; }
+        .importance-icon { font-size: 30px; color: #10b981; margin-bottom: 15px; }
+        .importance-list { list-style: none; margin-top: 15px; }
+        .importance-list li { margin-bottom: 10px; font-size: 14px; }
+
+        .back-to-top {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #10b981; color: white; width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            z-index: 2000; cursor: pointer;
+        }
+        /* --- SERVICES GRID --- */
+/* --- THE OUTER WRAPPER BOX --- */
+.services-main-wrapper {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 30px;
+    padding: 60px 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* --- THE GRID --- */
+.services-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+}
+
+/* Individual Card Boxes */
+.service-card {
+    background: #f8fafc; /* Slightly off-white for contrast */
+    padding: 40px 25px;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    transition: all 0.4s ease;
+}
+
+/* Standard Green Hover */
+.service-card:hover {
+    background: #ffffff;
+    transform: translateY(-10px);
+    border-color: #10b981;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.1);
+}
+
+/* Chimney Gold Hover */
+.service-card.chimney-special:hover {
+    border-color:  #10b981;
+    
+}
+
+/* Icon & Line Colors */
+.service-card i { font-size: 45px; color: #10b981; margin-bottom: 20px; }
+.service-card.chimney-special i { color: #10b981 }
+
+.service-card .line { width: 40px; height: 3px; background: #10b981; margin: 15px auto; }
+.service-card.chimney-special .line { background:#10b981 }
+/* Color for standard service icons */
+.service-card i { 
+    font-size: 45px; 
+    color: #10b981; 
+    margin-bottom: 20px; 
+    transition: 0.3s;
+}
+
+/* Color for Chimney service icons */
+.service-card.chimney-special i {
+    color: #10b981 /* Professional Amber/Gold */
+}
+
+/* Specific styling for the Repair icon stack */
+.icon-stack {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.service-card.chimney-special .line {
+   width: 40px; height: 3px; background: #10b981; margin: 15px auto;
+}
+
+
+        /* --- PROJECTS SECTION --- */
+        .projects-centralized {
+            position: relative;
+            min-height: 500px;
+            padding: 100px 5%;
+            background: url('images/home_imagess.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+        }
+
+        .projects-centralized::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.85); 
+            z-index: 1;
+        }
+
+        .projects-inner { position: relative; z-index: 2; width: 100%; max-width: 1100px; }
+        .projects-inner h2 { color:  rgba(16, 185, 129, 0.9);; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }
+        .projects-inner h1 { color: #fff; font-size: 36px; margin-bottom: 50px; font-weight: 800; }
+
+        .stats-grid-central { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
+        .stat-card-pro { padding: 40px 20px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 15px; transition: 0.4s ease; backdrop-filter: blur(5px); }
+        .stat-card-pro:hover { transform: translateY(-10px); background: rgba(37, 99, 235, 0.1); border-color:  rgba(16, 185, 129, 0.9);; }
+        .stat-card-pro i { font-size: 45px; color: rgba(16, 185, 129, 0.9);; margin-bottom: 20px; }
+        .stat-card-pro h3 { color: #fff; font-size: 38px; font-weight: 800; margin-bottom: 5px; }
+        .stat-card-pro p { color: #cbd5e1; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- QUOTE SECTION --- */
+  /* --- QUOTE SECTION --- */
+.quote-wrapper-central { padding: 100px 5%; background-color: #ffffff; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.central-quote-card { width: 100%; max-width: 650px; padding: 50px; background: #ffffff; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.08); border: 1px solid #f1f5f9; text-align: center; }
+.central-quote-card h2 { color: rgba(6, 124, 85, 0.9); font-size: 32px; font-weight: 800; margin-bottom: 10px; text-transform: uppercase; }
+
+.form-grid-central { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; text-align: left; }
+.full-row { grid-column: span 2; }
+
+.input-group-central { display: flex; flex-direction: column; }
+.input-group-central label { font-size: 11px; font-weight: 800; color: #0f172a; margin-bottom: 8px; letter-spacing: 0.5px; text-transform: uppercase; }
+
+/* Input Styling */
+.input-group-central input, 
+.input-group-central textarea, 
+.custom-select { 
+    padding: 14px 16px; 
+    border: 2px solid #e2e8f0; 
+    border-radius: 10px; 
+    font-size: 14px; 
+    background-color: #fdfdfd; 
+    transition: 0.3s; 
+    width: 100%;
+    font-family: inherit;
+}
+
+.input-group-central input:focus, 
+.custom-select:focus { 
+    border-color: rgba(16, 185, 129, 0.9); 
+    outline: none; 
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1); 
+}
+
+/* Phone Input Special Handling */
+.phone-input-wrapper {
+    display: flex; 
+    align-items: center; 
+    border: 2px solid #e2e8f0; 
+    border-radius: 10px; 
+    background-color: #fdfdfd; 
+    padding: 0 16px;
+}
+.phone-input-wrapper span { font-weight: 700; color: #0f172a; padding-right: 10px; border-right: 1px solid #e2e8f0; margin-right: 10px; }
+.phone-input-wrapper input { border: none !important; padding: 14px 0 !important; background: transparent !important; box-shadow: none !important; }
+
+/* SMS Agreement Styling */
+.sms-agreement { display: flex; align-items: center; gap: 10px; margin-top: 5px; }
+.sms-agreement input { width: auto; }
+.sms-agreement label { font-size: 12px; font-weight: 600; color: #64748b; margin-bottom: 0; text-transform: none; letter-spacing: 0; }
+
+/* Submit Button */
+.btn-submit-pro-central { grid-column: span 2; background: rgba(16, 185, 129, 0.9); color: white; padding: 18px; border: none; border-radius: 10px; font-weight: 800; font-size: 16px; cursor: pointer; margin-top: 15px; transition: 0.3s; text-transform: uppercase; }
+.btn-submit-pro-central:hover { background: #0f172a; transform: translateY(-2px); }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .form-grid-central { grid-template-columns: 1fr; }
+    .full-row { grid-column: span 1; }
+    .central-quote-card { padding: 30px 20px; }
+}
+
+        /* --- SKILLS SECTION --- */
+        .skills-final-section { padding: 100px 5%; background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('images/duct.webp'); background-attachment: fixed; background-size: cover; text-align: center; }
+        .skills-final-section h2 { color: #ffffff; font-size: 38px; font-weight: 900; margin-bottom: 50px; text-transform: uppercase; }
+        .skills-final-section h2 span { color:  rgba(16, 185, 129, 0.9); }
+        .skills-grid-line { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; max-width: 1300px; margin: 0 auto; }
+        .skill-pro-card { background: #ffffff; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: 0.3s; }
+        .skill-pro-card:hover { transform: translateY(-10px); }
+        .skill-pro-img { width: 100%; height: 160px; object-fit: cover; }
+        .skill-pro-body { padding: 20px; text-align: left; }
+        .skill-pro-body i { color:  rgba(16, 185, 129, 0.9); font-size: 24px; margin-bottom: 10px; display: block; }
+        .skill-pro-body h4 { color: #0f172a; font-size: 16px; font-weight: 800; margin-bottom: 8px; }
+
+        /* --- FOOTER WITH LOGO BACKGROUND --- */
+        .minimal-light-footer { 
+            position: relative;
+            background-color: #050930; 
+            color: #000000; 
+            padding: 60px 5% 30px; 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            border-top: 1px solid #0d0328; 
+            text-align: center; 
+            /* Light Logo background setting */
+           
+            background-repeat: no-repeat;
+            background-position: center;
+           background-size: 420px;   /* try 400–500px */
+background-color: rgba(255,255,255,0.5);
+
+            background-blend-mode: overlay;
+           /* High transparency white overlay */
+        }
+        
+        .footer-nav-simple { display: flex; justify-content: center; gap: 35px; margin: 40px 0; flex-wrap: wrap; }
+        .nav-link-simple { text-decoration: none; color: #000000; font-weight: 700; font-size: 15px; position: relative; z-index: 2; }
+        .link-dash { width: 20px; height: 3px; background-color:  rgba(16, 185, 129, 0.9);; margin: 4px auto 0; }
+        .social-links-simple { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; position: relative; z-index: 2; }
+        .social-btn-simple { width: 40px; height: 40px; background: #000000; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #ffffff; text-decoration: none; transition: 0.3s; }
+        .social-btn-simple:hover { background-color:  rgba(16, 185, 129, 0.9);; color: #ffffff; }
+        .footer-container { position: relative; z-index: 2; }
+
+        /* --- UTILS --- */
+        .quote-chatbot { 
+    position: fixed; 
+    bottom: 25px; 
+    right: 20px; 
+    background: #10b981; 
+    color: white; 
+    padding: 15px 25px;
+    border-radius: 50px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
+    z-index: 1000; 
+    cursor: pointer; 
+    box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4);
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.3s;
+    animation: pulse 2s infinite;
+}
+
+.quote-chatbot:hover {
+    background: #059669;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 5px 20px rgba(16, 185, 129, 0.4); }
+    50% { box-shadow: 0 5px 30px rgba(16, 185, 129, 0.7); }
+}
+
+.quote-chatbot i {
+    font-size: 20px;
+}
+        
+  
+
+       /* ===== FINAL MOBILE FIX ===== */
+
+@media (max-width: 768px) {
+    /* HEADER FLEX FIX */
+    header {
+        height: 70px;
+        padding: 0 15px;
+        display: flex; /* Ensure flexbox is active */
+        justify-content: space-between; /* Space logo, button, and hamburger */
+        align-items: center;
+        background: #0f172a;
+    }
+
+    /* LOGO DISPLAY */
+    .logo-img {
+        display: block !important;
+        height: 50px; /* Adjusted for mobile scale */
+        margin-left: 0;
+    }
+
+    /* MOBILE PROFILE/SIGN UP BUTTON */
+    .mobile-profile-btn {
+        display: flex !important; /* Forces visibility in mobile */
+        align-items: center;
+        justify-content: center;
+        background: #10b981; /* Purevent Green */
+        color: #ffffff;
+        padding: 8px 15px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 800;
+        text-decoration: none;
+        margin-left: auto; /* Pushes button next to hamburger */
+        margin-right: 15px;
+        border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .mobile-profile-btn i {
+        margin-right: 5px;
+    }
+
+    /* HAMBURGER TOGGLE */
+    .menu-toggle {
+        display: block !important;
+        font-size: 24px;
+        color: #10b981; /* Matching Green */
+    }
+
+    /* HIDE DESKTOP ONLY ELEMENTS */
+    .desktop-only {
+        display: none !important;
+    }
+}
+
+    /* --- AUTH MODAL STYLES --- */
+.auth-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(15, 23, 42, 0.9);
+    z-index: 2000;
+    display: none; /* Hidden by default */
+    align-items: center; justify-content: center;
+    backdrop-filter: blur(8px);
+}
+
+.auth-modal {
+    background: white;
+    width: 90%;
+    max-width: 850px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 30px; border: none; background: none;
+    cursor: pointer; color: #64748b; z-index: 10;
+}
+
+.auth-container { display: flex; flex-direction: row; }
+
+.auth-benefits {
+    flex: 1;
+    background:  rgba(4, 85, 58, 0.9);;
+    color: white;
+    padding: 50px 40px;
+}
+
+.auth-benefits h3 { font-size: 24px; margin-bottom: 25px; color: rgba(16, 185, 129, 0.9); }
+
+.auth-benefits ul { list-style: none; }
+
+.auth-benefits li { 
+    margin-bottom: 20px; 
+    display: flex; 
+    align-items: flex-start; 
+    gap: 15px;
+    font-size: 15px;
+}
+
+.auth-benefits i { color:  rgba(16, 185, 129, 0.9);; margin-top: 5px; }
+
+.auth-form-box { flex: 1.2; padding: 50px 40px; }
+
+.auth-form-box h2 { color: #0f172a; margin-bottom: 10px; }
+
+.auth-form-box input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+.switch-text { margin-top: 20px; font-size: 14px; color: #64748b; text-align: center; }
+
+.switch-text a { color:  rgba(16, 185, 129, 0.9);; font-weight: 700; text-decoration: none; }
+
+/* Mobile Responsive Auth */
+@media (max-width: 768px) {
+    .auth-container { flex-direction: column; }
+    .auth-benefits { padding: 30px; }
+}
+.details-explorer { padding: 60px 5%;  background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('images/duct.webp'); }
+
+.details-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    background: #f8fafc;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.details-content { flex: 1; padding: 50px; }
+.details-content h4 { font-size: 28px; color: #0f172a; margin-bottom: 10px; }
+.green-line { width: 60px; height: 4px; background: #10b981; margin-bottom: 25px; }
+.details-content p { color: #64748b; line-height: 1.8; margin-bottom: 20px; }
+
+.details-list { list-style: none; padding: 0; }
+.details-list li { margin-bottom: 12px; color: #1e293b; font-weight: 500; }
+.details-list i { color: #10b981; margin-right: 10px; }
+
+.details-visual { flex: 1; position: relative; min-height: 400px; }
+.details-visual img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s ease; }
+
+/* Arrows */
+.arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(16, 185, 129, 0.9);
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+}
+.arrow-btn:hover { background: #059669; transform: translateY(-50%) scale(1.1); }
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.service-label {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(15, 23, 42, 0.8);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .details-container { flex-direction: column; }
+    .details-visual { min-height: 250px; }
+}
+.importance-section { padding: 80px 5%; background-color: #f8fafc; }
+
+/* Top Headline Styling */
+.benefit-headline { text-align: center; margin-bottom: 50px; }
+.benefit-headline h3 { font-size: 24px; color: #0d7842; font-weight: 800; }
+.benefit-headline span { color: #10b981; text-decoration: underline; cursor: pointer; }
+
+.importance-container {
+    display: flex;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.importance-card {
+    flex: 1;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden; /* Keeps image corners rounded */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+}
+
+.importance-card:hover { transform: translateY(-10px); }
+
+/* Image Area */
+.card-image { position: relative; height: 250px; width: 100%; }
+.card-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.image-tag {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #10b981;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Card Content Area */
+.card-body { padding: 40px; position: relative; }
+
+.importance-icon {
+    width: 60px;
+    height: 60px;
+    background: #f0fdf4;
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    margin-top: -70px; /* Pulls icon up halfway onto the image */
+    border: 5px solid white;
+}
+
+.importance-card h3 { font-size: 26px; color: #0f172a; margin-bottom: 10px; }
+.green-line { width: 50px; height: 4px; background: #10b981; margin-bottom: 20px; }
+.card-body p { color: #64748b; line-height: 1.7; margin-bottom: 20px; }
+
+.importance-list { list-style: none; padding: 0; }
+.importance-list li { margin-bottom: 12px; color: #1e293b; font-size: 15px; }
+.importance-list li strong { color: #10b981; }
+
+@media (max-width: 900px) {
+    .importance-container { flex-direction: column; }
+}
+.static-promo-bar {
+    background-color: #dc2626; /* Simple, Professional Red */
+    color: #ffffff;
+    padding: 8px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.promo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.promo-text {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.promo-text i {
+    color: #fca5a5; /* Light red checkmark */
+    margin-left: 10px;
+}
+
+.separator {
+    margin: 0 10px;
+    opacity: 0.5;
+}
+
+.promo-link {
+    color: #ffffff;
+    text-decoration: underline;
+    font-weight: 800;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.promo-link:hover {
+    color: #fee2e2;
+}
+
+/* Mobile View: Simplifies the bar for small screens */
+@media (max-width: 768px) {
+    .promo-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .separator { display: none; }
+    .promo-text { font-size: 11px; text-align: center; }
+}
+/* --- MODAL OVERLAYS (Hidden by default) --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;  /* ✅ ADD THIS LINE */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+.modal-overlay.hidden {
+    display: none !important;
+}
+/* --- THE MODAL CARD --- */
+.modal-card {
+    background: white;
+    width: 95%;
+    max-width: 450px;
+    padding: 40px;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- PROFILE SCREEN STYLING --- */
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    background: #10b981;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 800;
+    margin: 0 auto 15px;
+    box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+}
+
+.profile-stat {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 14px;
+    color: #475569;
+}
+
+.profile-stat span:last-child {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* --- UTILITY --- */
+.hidden {
+    display: none !important;
+}
+
+/* Close Button Styling */
+.close-modal:hover {
+    color: #ef4444;
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+    </style>
+</head>
+<body>
+
+   <header>
+        <a href="#home" class="logo">
+            <img src="images/PureVent_Services_HVAC_logo_design-removebg-preview.png" alt="VentShield Logo" class="logo-img">
+        </a>
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+               <li><a href="#contact">Contact Us</a></li>
+                
+                <li><button id="authBtn" class="btn-quote" onclick="openAuth()">Sign Up</button></li>
+            </ul>
+            
+        </nav>
+      
+    </header>
+
+    <section class="hero" id="home">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="images/WhatsApp Video 2026-01-20 at 11.20.19 AM.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+        
+        <main class="hero-content">
+            <span style="letter-spacing: 5px; font-weight: 800; color: #10b981;">ULTIMATE AIR SAFEGUARD</span>
+            <h1>Looking For<br>Skilled Cleaners?</h1>
+            <p>Your health is our priority. We offer nationwide sanitizing services.</p>
+            <a href="#about" class="btn-quote">LEARN MORE</a>
+        </main>
+    </section>
+
+
+    <section class="section-padding" id="about">
+        <div class="section-title">
+            <h2>About Us</h2>
+            <p>Ensuring Pure, Clean Air for a Healthier Home Environment</p>
+        </div>
+        <div class="about-container">
+            <div class="about-img">
+                <img src="images/air-duct-cleaning-before-after.jpg.jpeg" alt="Duct Cleaning">
+            </div>
+            <div class="about-content">
+                <h3>PureVent Services</h3>
+                <h4>Cleaner Air. Safer Homes. Trusted Care.</h4>
+                <p>Purevent Services has proudly served customers for many years, providing professional duct cleaning, dryer vent cleaning, and chimney sweep services across the USA. Our licensed technicians help improve indoor air quality, boost system efficiency, and reduce fire hazards.</p>
+                <p>According to the <strong>Health Department</strong> and <strong>NADCA</strong>, ducts should be cleaned annually for homes with pets or smokers, or every two years otherwise.</p>
+            </div>
+        </div>
+        <div class="about-features">
+            <div class="feat-card"><i class="fas fa-users"></i><h4>Professional Team</h4><p>Our team consists of certified professionals with years of experience.</p></div>
+            <div class="feat-card"><i class="fas fa-leaf"></i><h4>Eco-Friendly Solutions</h4><p>We use eco-friendly techniques to ensure a safe environment.</p></div>
+            <div class="feat-card"><i class="fas fa-tools"></i><h4>Advanced Equipment</h4><p>We utilize the latest technology for efficient and thorough cleaning.</p></div>
+        </div>
+    </section>
+
+<section class="importance-section">
+    <div class="section-title">
+        <h2 style="color: #0f172a;">Why Maintenance Matters</h2>
+        <p>Protect your health and your home with regular cleaning</p>
+    </div>
+
+    <div class="importance-container">
+        <div class="importance-card">
+            <div class="card-image">
+                <img src="images/duct.webp" alt="Dirty vs Clean Air Duct">
+                <div class="image-tag">Health Focus</div>
+            </div>
+            <div class="card-body">
+                <div class="importance-icon"><i class="fas fa-lungs"></i></div>
+                <h3>Why Air Duct & Dryer Vent Cleaning?</h3>
+                <div class="green-line"></div>
+                <p>Your air ducts act as the respiratory system of your home. Over time, they accumulate dust, pet dander, and mold spores that circulate every time the air turns on.</p>
+                <ul class="importance-list">
+                    <li><strong>Healthier Air:</strong> Removes dust, allergens, pet dander, and lint to improve indoor air quality.</li>
+                    <li><strong>Fire Safety:</strong> Clears flammable lint and debris, helping reduce fire risks in your home.</li>
+                    <li><strong>Energy Efficiency</strong> Improves airflow so systems run better, dry faster, and use less energy.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="importance-card">
+            <div class="card-image">
+                <img src="images/chemni.jfif" alt="Chimney Creosote Buildup">
+                <div class="image-tag">Safety First</div>
+            </div>
+            <div class="card-body">
+                <div class="importance-icon"><i class="fas fa-fire-extinguisher"></i></div>
+                <h3>Why Chimney Cleaning?</h3>
+                <div class="green-line"></div>
+                <p>Every time you enjoy a fire, a sticky substance called Creosote builds up in your flue. This material is the #1 cause of residential structure fires.</p>
+                <ul class="importance-list">
+                    <li><strong>Fire Prevention:</strong> Removes flammable tar before it ignites.</li>
+                    <li><strong>CO Safety:</strong> Ensures carbon monoxide vents out, not into your home.</li>
+                    <li><strong>Longevity:</strong> Protects your masonry from expensive soot damage.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div class="quote-chatbot" onclick="scrollToQuote()">
+    <i class="fas fa-comments"></i>
+    <span>Request Quote</span>
+</div>
+<section class="section-padding services-bg" id="services">
+    <div class="section-title">
+        <h2 style="color: #0f172a;">OUR SERVICES</h2>
+        <p>Expert care for your ventilation and heating systems</p>
+    </div>
+
+    <div class="services-main-wrapper">
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <i class="fas fa-fan"></i>
+                <h3>Air Duct Cleaning</h3>
+                <div class="line"></div>
+                <p>Professional high-suction cleaning to eliminate dust and improve airflow.</p>
+            </div>
+
+<div class="service-card">
+    <svg width="70" height="70" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 15px;">
+        <rect x="12" y="8" width="10" height="14" rx="1" stroke="#10b981" stroke-width="2"/>
+        <circle cx="17" cy="15" r="3" stroke="#10b981" stroke-width="2"/>
+        <line x1="12" y1="11" x2="22" y2="11" stroke="#10b981" stroke-width="2"/>
+        
+        <path d="M2 4V10C2 11.1046 2.89543 12 4 12H12" stroke="#10b981" stroke-width="2" stroke-linejoin="round"/>
+        
+        <line x1="2" y1="6" x2="6" y2="6" stroke="#10b981" stroke-width="1.5"/>
+        <line x1="2" y1="8" x2="6" y2="8" stroke="#10b981" stroke-width="1.5"/>
+        <line x1="4" y1="4" x2="4" y2="12" stroke="#10b981" stroke-width="1.5"/>
+        <line x1="6" y1="12" x2="6" y2="8" stroke="#10b981" stroke-width="1.5" transform="rotate(90 6 12)"/>
+        <line x1="9" y1="12" x2="9" y2="8" stroke="#10b981" stroke-width="1.5" transform="rotate(90 9 12)"/>
+    </svg>
+
+    <h3>Dryer Vent Cleaning</h3>
+    <div class="line"></div>
+    <p>Vital lint removal to prevent house fires and increase dryer efficiency.</p>
+</div>
+            <div class="service-card">
+                <i class="fas fa-tools"></i>
+                <h3>Duct Repair & Replacement</h3>
+                <div class="line"></div>
+                <p>Fixing leaks and replacing old flex-ducts to lower your energy bills.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-gears"></i>
+                <h3>HVAC Maintenance</h3>
+                <div class="line"></div>
+                <p>Seasonal check-ups to extend the lifespan of your cooling systems.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-microscope"></i>
+                <h3>Indoor Air Quality</h3>
+                <div class="line"></div>
+                <p>Test and improve the air quality inside your home with lab results.</p>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-hand-sparkles"></i>
+                <h3>Air Sanitizing</h3>
+                <div class="line"></div>
+                <p>Medical-grade fogging to kill mold, bacteria, and hidden allergens.</p>
+            </div>
+
+            <div class="service-card chimney-special">
+                <i class="fas fa-broom"></i>
+                <h3>Chimney Sweep</h3>
+                <div class="line"></div>
+                <p>Creosote removal and safety inspections for your fireplace and flue.</p>
+            </div>
+
+           <div class="service-card chimney-special">
+    <i class="fas fa-trowel-bricks"></i>
+    <h3>Chimney Repair</h3>
+    <div class="line"></div>
+    <p>Professional masonry and liner repairs to fix cracks and structural damage.</p>
+</div>
+
+            <div class="service-card chimney-special">
+                <i class="fas fa-house-chimney-medical"></i>
+                <h3>Chimney Installation</h3>
+                <div class="line"></div>
+                <p>Professional installation of new chimney systems, caps, and dampers.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section class="projects-centralized" id="projects">
+        <div class="projects-inner">
+            <h2>Our Impact</h2>
+            <h1>Reliable Service Across the Nation</h1>
+            <div class="stats-grid-central">
+                <div class="stat-card-pro"><i class="fas fa-headset"></i><h3>24/7</h3><p>Helpline Service</p></div>
+                <div class="stat-card-pro"><i class="fas fa-check-circle"></i><h3>4000+</h3><p>Successful Projects</p></div>
+                <div class="stat-card-pro"><i class="fas fa-users"></i><h3>250+</h3><p>Expert Employees</p></div>
+                <div class="stat-card-pro"><i class="fas fa-map-marker-alt"></i><h3>40+</h3><p>States Served</p></div>
+            </div>
+        </div>
+    </section>
+
+   <section class="quote-wrapper-central" id="quote">
+    <div class="central-quote-card">
+        <h2>Request A Quotation</h2>
+        <p class="form-subtitle" style="color: #64748b; margin-bottom: 30px; font-size: 14px;">
+            Tell us about your project, and our experts will provide a customized quote within 24 hours.
+        </p>
+
+        <form class="form-grid-central" id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="dbe8a4a0-6ba5-4f98-a1ef-7c5733659da9">
+            <input type="hidden" name="subject" value="New Quote Request - VentShield">
+            <input type="checkbox" name="botcheck" style="display: none;">
+
+            <div class="input-group-central full-row">
+                <label>FULL NAME *</label>
+                <input type="text" name="Name" placeholder="Your Full Name" required>
+            </div>
+            
+            <div class="input-group-central">
+                <label>EMAIL ADDRESS *</label>
+                <input type="email" name="Email" placeholder="email@example.com" required>
+            </div>
+
+            <div class="input-group-central">
+                <label>PHONE NUMBER *</label>
+                <div class="phone-input-wrapper">
+                    <span>+1</span>
+                    <input type="tel" name="Phone" placeholder="(xxx) xxx-xxxx" required oninput="formatPhoneNumber(this)">
+                </div>
+            </div>
+
+            <div class="input-group-central">
+                <label>ADDRESS *</label>
+                <input type="text" name="Address" placeholder="Street Address" required>
+            </div>
+
+
+            <div class="input-group-central">
+                <label>ZIP CODE *</label>
+                <input type="text" name="Zip_Code" placeholder="xxxxx" required maxlength="5">
+            </div>
+
+            <div class="input-group-central">
+                <label>DATE *</label>
+                <input type="date" name="Date" required>
+            </div>
+
+            <div class="input-group-central">
+                <label>WINDOW OF ARRIVAL *</label>
+                <select name="Arrival_Window" required class="custom-select">
+                     <option value="8AM-12PM">9AM-11AM</option>
+                    <option value="4PM-8PM">11AM-1PM</option>
+                    <option value="12PM-4PM">1PM-3PM</option>
+                    <option value="4PM-8PM">3PM-5PM</option>
+                    <option value="4PM-8PM">5PM-7PM</option>
+                    </select>
+            </div>
+
+  <div class="input-group-central full-row">
+                <label>SERVICE *</label>
+                <select name="Package" required class="custom-select">
+                    <option value="" disabled selected>Select a Service</option>
+                    <option value="Air Duct Cleaning">Air Duct Cleaning</option>
+                    <option value="Dryer Vent Cleaning">Dryer Vent Cleaning</option>
+                    <option value="Chimney Cleaning">Chimney Cleaning</option>
+                    <option value="Air Duct and Dryer Vent Combo">Air Duct + Dryer Vent Cleaning Combo</option>
+                    
+                </select>
+            </div> 
+            
+            <div class="input-group-central full-row">
+                <label>ADDITIONAL DETAILS</label>
+                <textarea name="Details" rows="3" placeholder="Tell us more about your project..."></textarea>
+            </div>
+
+            <div class="full-row sms-agreement">
+                <input type="checkbox" id="sms_agree" name="sms_consent" required>
+                <label for="sms_agree">I agree to receive text messages from this company.</label>
+            </div>
+            
+            <button type="submit" id="submitBtn" class="btn-submit-pro-central">
+                GET MY FREE QUOTE
+            </button>
+        </form>
+    </div>
+</section>
+
+
+    <section class="skills-final-section">
+        <h2>Our <span>Skills</span></h2>
+        <div class="skills-grid-line">
+            <div class="skill-pro-card"><img src="images/inspection.jfif" class="skill-pro-img"><div class="skill-pro-body"><i class="fas fa-search"></i><h4>Thorough Inspection</h4><p>We inspect every duct thoroughly for tailored cleaning.</p></div></div>
+            <div class="skill-pro-card"><img src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?q=80&w=400" class="skill-pro-img"><div class="skill-pro-body"><i class="fas fa-certificate"></i><h4>Certified Professionals</h4><p>Our team consists of certified duct cleaning experts.</p></div></div>
+            <div class="skill-pro-card"><img src="images/eco iendly.jfif" class="skill-pro-img"><div class="skill-pro-body"><i class="fas fa-leaf"></i><h4>Eco-Friendly Solutions</h4><p>Our methods are eco-friendly and sustainable.</p></div></div>
+            <div class="skill-pro-card"><img src="images/comprehensive.jfif" class="skill-pro-img"><div class="skill-pro-body"><i class="fas fa-broom"></i><h4>Comprehensive Cleaning</h4><p>We clean air ducts, vents, and return lines comprehensively.</p></div></div>
+            <div class="skill-pro-card"><img src="images/equipment.jfif" class="skill-pro-img"><div class="skill-pro-body"><i class="fas fa-tools"></i><h4>State-of-the-Art Equipment</h4><p>We use cutting-edge tools for efficient cleaning.</p></div></div>
+            <div class="skill-pro-card"><img src="images/advanced_tech.jfif" class="skill-pro-img"><div class="skill-pro-body"><i class="fas fa-handshake"></i><h4>Advanced Techniques</h4><p>We employ advanced techniques for superior and lasting cleanliness.</p></div></div>
+            <div class="skill-pro-card"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400" class="skill-pro-img"><div class="skill-pro-body"><i class="fas fa-globe"></i><h4>Business Growth</h4><p>Bringing our expertise worldwide, ensuring clean air knows no boundaries.</p></div></div>
+            <div class="skill-pro-card"><img src="images/satisaction.jfif" class="skill-pro-img"><div class="skill-pro-body"><i class="fas fa-bullseye"></i><h4>Customer Satisfaction</h4><p>We prioritize satisfaction for a pleasant experience.</p></div></div>
+        </div>
+    </section>
+
+    <footer class="minimal-light-footer"  id="contact">
+       <h2 class="footer-title">Contact Us</h2>
+<a href="mailto:info@pureventservices.com" class="footer-email">info@pureventservices.com</a>
+  </br>
+    </br>
+<a href="tel:+1 888 518 0176" class="footer-phone">+1 888 518 0176</a>
+
+
+            <div class="footer-nav-simple">
+                <a href="#home" class="nav-link-simple">Home<div class="link-dash"></div></a>
+                <a href="#services" class="nav-link-simple">Services<div class="link-dash"></div></a>
+                <a href="#about" class="nav-link-simple">About<div class="link-dash"></div></a>
+                <a href="#projects" class="nav-link-simple">Projects<div class="link-dash"></div></a>
+                <a href="#quote" class="nav-link-simple">Contact Us<div class="link-dash"></div></a>
+            </div>
+           <div class="social-links-simple">
+    <a href="https://www.facebook.com/profile.php?id=61570620988547" class="social-btn-simple" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/pureventservices_?igsh=NGhhaHNrMnc1b2Jx" class="social-btn-simple" target="_blank"><i class="fab fa-instagram"></i></a>
+</div>
+            <p class="copyright-simple">&copy; 2018 VentShield Purifiers. All Rights Reserved.</p>
+        </div>
+    </footer>
+ <div class="modal-overlay hidden" id="authModal">
+    <div class="auth-modal">
+        <button class="close-modal" onclick="closeModals()">&times;</button>
+        
+        <!-- LEFT SIDE: Benefits -->
+        <div class="auth-container">
+            <div class="auth-benefits">
+                <h3>Why Join VentShield?</h3>
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Priority booking for all services</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Exclusive member discounts up to 10%</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Free annual air quality inspection</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>24/7 priority customer support</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- RIGHT SIDE: Forms -->
+            <div class="auth-form-box">
+                <!-- ✅ SIGN UP FORM -->
+                <div id="signUpForm">
+                    <h2>Become a Member</h2>
+                    <form id="regForm">
+                        <input type="text" id="userName" placeholder="Full Name" required>
+                        <input type="email" id="userEmail" placeholder="Email Address" required>
+                        <input type="password" id="userPassword" placeholder="Password" required>
+                        <button type="submit" class="btn-quote" style="width: 100%; margin-top: 10px; background: #10b981; color: white; padding: 12px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold;">SIGN UP</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #64748b;">
+    Already have an account? 
+    <a href="#" onclick="switchToSignIn(event)" style="color: #10b981; font-weight: bold; text-decoration: none;">Sign In</a>
+</p>
+                </div>
+
+                <!-- ✅ SIGN IN FORM -->
+                <div id="signInForm" style="display: none;">
+                    <h2>Welcome Back</h2>
+                    <form id="loginForm">
+                        <input type="email" id="loginEmail" placeholder="Email Address" required>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                        <button type="submit" class="btn-quote" style="width: 100%; margin-top: 10px; background: #10b981; color: white; padding: 12px; border: none; border-radius: 50px; cursor: pointer; font-weight: bold;">SIGN IN</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 15px; font-size: 14px; color: #64748b;">
+    Don't have any account? 
+    <a href="#" onclick="switchToSignUp(event)" style="color: #10b981; font-weight: bold; text-decoration: none;">Sign Up</a>
+</p>
+                </div>
+
+                <!-- ✅ THANK YOU MESSAGE -->
+                <div id="thankYouMsg" class="hidden" style="display: none; text-align: center;">
+                    <i class="fas fa-check-circle" style="font-size: 60px; color: #10b981;"></i>
+                    <h2 style="margin-top: 15px;">Welcome Aboard!</h2>
+                    <p>Thank you for joining VentShield.</p>
+                    <p style="color: #10b981; font-weight: bold; margin-top: 15px;">Your profile is now active.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ✅ PROFILE MODAL -->
+<div class="modal-overlay hidden" id="profileModal">
+    <div class="modal-card">
+        <button class="close-modal" onclick="closeModals()">&times;</button>
+        
+        <div class="profile-avatar" id="pInitial">V</div>
+        <h2 id="pName">VentShield User</h2>
+        <p style="color: #64748b; margin-bottom: 30px;">Member Dashboard</p>
+        
+        <div style="text-align: left;">
+            <div class="profile-stat">
+                <span>Member Since:</span>
+                <span id="memberDate">Today</span>
+            </div>
+            
+            <div class="profile-stat">
+                <span>Account Status:</span>
+                <span style="color: #10b981;">Active</span>
+            </div>
+        </div>
+        
+        <button class="btn-quote" style="width: 100%; margin-top: 30px; background: #eee; color: #333; padding: 12px; border: none; border-radius: 50px; cursor: pointer;" onclick="logout()">Log Out</button>
+    </div>
+</div>
+
+<script>
+// Only run slider if slides exist
+const slides = document.querySelectorAll('.slide');
+if (slides.length > 0) {
+    let currentSlide = 0;
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+    setInterval(nextSlide, 5000);
+}
+
+// Back to top button
+const btt = document.getElementById('backToTop');
+if (btt) {
+    window.onscroll = function() {
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            btt.style.display = "flex";
+        } else {
+            btt.style.display = "none";
+        }
+    };
+    btt.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+}
+
+// Mobile toggle check
+const mobileToggle = document.getElementById('mobile-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        if (icon) {
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        }
+    });
+
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => { navMenu.classList.remove('active'); });
+    });
+}
+
+// Quote form submission
+const form = document.getElementById('quoteForm');
+const submitBtn = document.getElementById('submitBtn');
+
+if (form && submitBtn) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        submitBtn.innerHTML = "Sending...";
+        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: json
+        })
+        .then(async (response) => {
+            if (response.status == 200) {
+                alert("Thank you! Your quote request has been submitted successfully.");
+                form.reset();
+            } else {
+                let res = await response.json();
+                alert("Error: " + res.message);
+            }
+        })
+        .catch(error => { alert("Network error. Please try again later."); })
+        .finally(() => {
+            submitBtn.innerHTML = "GET MY FREE QUOTE";
+            submitBtn.disabled = false;
+        });
+    });
+}
+
+// ✅ Modal Elements
+const authModal = document.getElementById('authModal');
+const thankYouMsg = document.getElementById('thankYouMsg');
+const signUpForm = document.getElementById('signUpForm');
+const signInForm = document.getElementById('signInForm');
+const authBtn = document.getElementById('authBtn');
+
+// ✅ Switch between Sign Up and Sign In
+function switchToSignIn(e) {
+    e.preventDefault();
+    if (signUpForm) signUpForm.style.display = 'none';
+    if (signInForm) signInForm.style.display = 'block';
+}
+
+function switchToSignUp(e) {
+    e.preventDefault();
+    if (signInForm) signInForm.style.display = 'none';
+    if (signUpForm) signUpForm.style.display = 'block';
+}
+
+// ✅ Open/Close Modals
+function openAuth() { 
+    if (authModal) {
+        authModal.classList.remove('hidden');
+        // Default to Sign Up
+        if (signUpForm) signUpForm.style.display = 'block';
+        if (signInForm) signInForm.style.display = 'none';
+    }
+}
+
+function closeModals() { 
+    if (authModal) authModal.classList.add('hidden'); 
+}
+
+// ✅ Handle Sign Up (Direct Redirect to Dashboard)
+const regForm = document.getElementById('regForm');
+if (regForm) {
+    regForm.onsubmit = function(e) {
+        e.preventDefault();
+        const nameInput = document.getElementById('userName');
+        const emailInput = document.getElementById('userEmail');
+        const passwordInput = document.getElementById('userPassword');
+        
+        const name = nameInput ? nameInput.value : "User";
+        const email = emailInput ? emailInput.value : "";
+        const password = passwordInput ? passwordInput.value : "";
+
+        // Save user to localStorage
+        const userData = { name, email, password };
+        localStorage.setItem('ventshield_user', JSON.stringify(userData));
+
+        // Show feedback then redirect
+        if (signUpForm) signUpForm.style.display = 'none';
+        if (thankYouMsg) {
+            thankYouMsg.innerText = "Setting up your dashboard...";
+            thankYouMsg.classList.remove('hidden');
+            thankYouMsg.style.display = 'block';
+        }
+
+        // 🚀 Redirect to the dashboard you designed
+        setTimeout(() => {
+            window.location.href = 'dashboard.html';
+        }, 1500);
+    };
+}
+
+// ✅ Handle Sign In
+const loginForm = document.getElementById('loginForm');
+if (loginForm) {
+    loginForm.onsubmit = function(e) {
+        e.preventDefault();
+        const emailInput = document.getElementById('loginEmail');
+        const passwordInput = document.getElementById('loginPassword');
+        
+        const email = emailInput ? emailInput.value : "";
+        const password = passwordInput ? passwordInput.value : "";
+
+        const savedUser = localStorage.getItem('ventshield_user');
+        if (savedUser) {
+            const userData = JSON.parse(savedUser);
+            if (userData.email === email && userData.password === password) {
+                window.location.href = 'dashboard.html';
+            } else {
+                alert("Invalid credentials.");
+            }
+        } else {
+            alert("No account found. Please sign up.");
+            switchToSignUp(e);
+        }
+    };
+}
+
+// ✅ Load state on Page Load
+function initPage() {
+    const savedUser = localStorage.getItem('ventshield_user');
+    const signInLink = document.getElementById('signInLink');
+    
+    if (savedUser) {
+        const userData = JSON.parse(savedUser);
+        if (signInLink) signInLink.style.display = 'none';
+        
+        if (authBtn) {
+             // Button now leads to your dashboard
+            authBtn.style.background = "#0f172a";
+            authBtn.onclick = () => window.location.href = 'dashboard.html';
+        }
+    }
+}
+
+// Run on load
+document.addEventListener('DOMContentLoaded', initPage);
+
+// ✅ Utility: Scroll to quote
+function scrollToQuote() {
+    const quoteSection = document.getElementById('quote');
+    if (quoteSection) quoteSection.scrollIntoView({ behavior: 'smooth' });
+}
+</script>
+   
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
