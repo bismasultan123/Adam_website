@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VentShield | Ultimate Air Safeguard</title>
+    <title>PureVent | Ultimate Air Safeguard</title>
     <link rel="icon" size="64*64" type="image/jpg" href="IMAGES/download.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -48,7 +48,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .logo-img { height: 150px; width: auto; transition: transform 0.3s ease; margin-left: -90px; margin-top: 15px;}
+        .logo-img { height: 190px; width: auto; transition: transform 0.3s ease; margin-left: -90px; margin-top: 15px;}
         .logo-img:hover { transform: scale(1.05); }
 
         nav ul { display: flex; list-style: none; gap: 50px; align-items: center; margin-left: -100px;}
@@ -568,7 +568,7 @@ background-color: rgba(255,255,255,0.5);
     }
 
     .logo-img {
-        height: 55px;
+        height: 70px;
         margin-left: 0;
     }
 
@@ -594,13 +594,13 @@ background-color: rgba(255,255,255,0.5);
 
     /* HEADER SIZE */
     header {
-        height: 70px;
+        height: 90px;
         padding: 0 15px;
     }
 
     /* LOGO FIX */
     .logo-img {
-        height: 62px;
+        height: 70px;
         margin-left: -10px;
     }
 
@@ -650,10 +650,12 @@ background-color: rgba(255,255,255,0.5);
 
 
         /* --- HIDE ELEMENTS ON DESKTOP --- */
-        @media (min-width: 993px) {
-            .hero-wrapper [class*="arrow"], .hero-wrapper [class*="chevron"], .hero-wrapper [class*="angle"] { display: none !important; }
-            #mobile-toggle, .menu-toggle { display: none !important; }
-        }
+      /* --- HIDE ELEMENTS ON DESKTOP --- */
+@media (min-width: 993px) {
+    .hero-wrapper [class*="arrow"], .hero-wrapper [class*="chevron"], .hero-wrapper [class*="angle"] { display: none !important; }
+    #mobile-toggle, .menu-toggle { display: none !important; }
+    .mobile-profile-btn { display: none !important; }
+}
 
     /* --- AUTH MODAL STYLES --- */
 .auth-overlay {
@@ -995,29 +997,46 @@ background-color: rgba(255,255,255,0.5);
     transform: scale(1.1);
     transition: 0.2s;
 }
+/* Package Card Hover Effects */
+.packages-container > div {
+    transition: all 0.4s ease;
+}
+
+.packages-container > div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(16, 185, 129, 0.2);
+}
+
+.packages-container > div button:hover {
+    background: #059669 !important;
+    transform: scale(1.05);
+}
     </style>
 </head>
 <body>
 
-   <header>
-        <a href="#home" class="logo">
-            <img src="images/ChatGPT Image Jan 22, 2026, 01_20_47 AM (1).png" alt="VentShield Logo" class="logo-img">
-        </a>
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                
-                
-                <li><a href="#projects">Projects</a></li>
-               <li><a href="#contact">Contact Us</a></li>
-                <li><a href="#packages">Packages</a></li>
-                <li><button id="authBtn" class="btn-quote" onclick="openAuth()">Sign Up</button></li>
-            </ul>
-            
-        </nav>
-      
-    </header>
-
+<header>
+    <a href="#home" class="logo">
+        <img src="images/ChatGPT Image Jan 22, 2026, 01_20_47 AM (1).png" alt="VentShield Logo" class="logo-img">
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <nav id="nav-menu" class="desktop-only">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><a href="#packages">Packages</a></li>
+           <li><button id="authBtn" class="btn-quote desktop-only">Sign Up</button></li>
+        </ul>
+    </nav>
+    
+    <!-- Mobile Profile Button (Visible Only on Mobile) -->
+<!-- Mobile Profile Button (Visible Only on Mobile) -->
+<button id="mobileProfileBtn" class="btn-quote mobile-profile-btn" onclick="openProfile()">
+    <i class="fas fa-user-circle"></i> Hi, User
+</button>
+</header>
   <section class="hero" id="home">
     <video autoplay muted loop playsinline class="hero-video">
         <source src="images/WhatsApp Video 2026-01-20 at 11.20.19 AM.mp4" type="video/mp4">
@@ -1339,7 +1358,7 @@ background-color: rgba(255,255,255,0.5);
                 <a href="https://www.facebook.com/profile.php?id=61570620988547" class="social-btn-simple"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/pureventservices_?igsh=NGhhaHNrMnc1b2Jx" class="social-btn-simple"><i class="fab fa-instagram"></i></a>
             </div>
-            <p class="copyright-simple">&copy; 2018 VentShield Purifiers. All Rights Reserved.</p>
+            <p class="copyright-simple">&copy; 2018 PureVent Services. All Rights Reserved.</p>
         </div>
     </footer>
  <div class="modal-overlay hidden" id="authModal">
@@ -1576,7 +1595,11 @@ function loadDashboardProfile() {
             authBtn.style.background = "#0f172a";
             authBtn.onclick = openProfile; // Directly opens profile
         }
-        
+        // Update Mobile Button
+const mobileBtn = document.getElementById('mobileProfileBtn');
+if (mobileBtn) {
+    mobileBtn.innerHTML = `<i class="fas fa-user-circle"></i> Hi, ${firstName}`;
+}
         // Update Modal Details
         if (pName) pName.innerText = userData.name;
         if (pInitial) pInitial.innerText = userData.name.charAt(0).toUpperCase();
@@ -1614,8 +1637,6 @@ window.onclick = function(event) {
 
 </body>
 </html>
-
-
 
 
 
