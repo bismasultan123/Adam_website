@@ -383,58 +383,221 @@ background-color: rgba(255,255,255,0.5);
 
        /* ===== FINAL MOBILE FIX ===== */
 
+/* ===== COMPLETE MOBILE RESPONSIVE HEADER ===== */
+
+/* ===== HIDE MOBILE ELEMENTS ON DESKTOP ===== */
+.mobile-signup-btn {
+    display: none;
+}
+
+/* ===== MOBILE RESPONSIVE (768px and below) ===== */
 @media (max-width: 768px) {
-    /* HEADER FLEX FIX */
+    
+    /* === HEADER CONTAINER === */
     header {
         height: 70px;
         padding: 0 15px;
-        display: flex; /* Ensure flexbox is active */
-        justify-content: space-between; /* Space logo, button, and hamburger */
+        display: flex;
+        justify-content: space-between;
         align-items: center;
-        background: #0f172a;
+        background: rgba(15, 23, 42, 0.98);
     }
 
-    /* LOGO DISPLAY */
+    /* === LOGO - LEFT SIDE === */
     .logo-img {
-        display: block !important;
-        height: 50px; /* Adjusted for mobile scale */
-        margin-left: 0;
+        height: 55px !important;
+        margin-left: 0 !important;
     }
 
-    /* MOBILE PROFILE/SIGN UP BUTTON */
-    .mobile-profile-btn {
-        display: flex !important; /* Forces visibility in mobile */
+    /* === HIDE DESKTOP NAVIGATION === */
+    .desktop-only,
+    nav#nav-menu {
+        display: none !important;
+    }
+
+    /* === MOBILE SIGN UP BUTTON - RIGHT SIDE === */
+    .mobile-signup-btn {
+        display: flex !important;
         align-items: center;
         justify-content: center;
-        background: #10b981; /* Purevent Green */
-        color: #ffffff;
-        padding: 8px 15px;
+        background: #10b981;
+        color: white;
+        padding: 10px 20px;
         border-radius: 50px;
-        font-size: 12px;
+        font-size: 13px;
         font-weight: 800;
-        text-decoration: none;
-        margin-left: auto; /* Pushes button next to hamburger */
-        margin-right: 15px;
-        border: 1px solid rgba(255,255,255,0.2);
+        text-transform: uppercase;
+        border: 2px solid #10b981;
+        cursor: pointer;
+        transition: 0.3s;
     }
 
-    .mobile-profile-btn i {
-        margin-right: 5px;
+    .mobile-signup-btn i {
+        margin-right: 6px;
+        font-size: 12px;
     }
 
-    /* HAMBURGER TOGGLE */
-    .menu-toggle {
-        display: block !important;
-        font-size: 24px;
-        color: #10b981; /* Matching Green */
+    .mobile-signup-btn:hover {
+        background: white;
+        color: #10b981;
     }
 
-    /* HIDE DESKTOP ONLY ELEMENTS */
-    .desktop-only {
-        display: none !important;
+    /* === GLOBAL MOBILE FIXES === */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100%;
+    }
+
+    section, div {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* === HERO SECTION === */
+    .hero {
+        padding-top: 70px;
+    }
+
+    .hero-content {
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .hero-content .btn-quote {
+        padding: 12px 25px;
+        font-size: 13px;
+    }
+
+    /* === ABOUT SECTION === */
+    .section-padding {
+        padding: 60px 20px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .about-features {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* === SERVICES GRID === */
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .services-main-wrapper {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    /* === IMPORTANCE CARDS === */
+    .importance-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    /* === STATS SECTION === */
+    .projects-centralized {
+        padding: 60px 20px;
+        background-attachment: scroll;
+    }
+
+    .stats-grid-central {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    /* === QUOTE FORM === */
+    .quote-wrapper-central {
+        padding: 60px 20px;
+        min-height: auto;
+    }
+
+    .central-quote-card {
+        padding: 30px 20px;
+    }
+
+    .form-grid-central {
+        grid-template-columns: 1fr;
+    }
+
+    .full-row,
+    .btn-submit-pro-central {
+        grid-column: span 1 !important;
+    }
+
+    /* === SKILLS GRID === */
+    .skills-final-section {
+        padding: 60px 20px;
+        background-attachment: scroll;
+    }
+
+    .skills-grid-line {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    /* === FOOTER === */
+    .minimal-light-footer {
+        padding: 40px 20px 25px;
+        background-size: 200px;
+    }
+
+    .footer-nav-simple {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* === QUOTE CHATBOT === */
+    .quote-chatbot {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px 20px;
+        font-size: 12px;
+    }
+
+    .quote-chatbot span {
+        display: none;
+    }
+
+    .quote-chatbot i {
+        font-size: 18px;
     }
 }
 
+/* ===== TABLET (769px - 992px) ===== */
+@media (max-width: 992px) and (min-width: 769px) {
+    header {
+        padding: 0 4%;
+        height: 80px;
+    }
+
+    .logo-img {
+        height: 70px;
+        margin-left: -50px;
+    }
+
+    nav ul {
+        gap: 25px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+}
     /* --- AUTH MODAL STYLES --- */
 .auth-overlay {
     position: fixed;
@@ -780,24 +943,28 @@ background-color: rgba(255,255,255,0.5);
 </head>
 <body>
 
-   <header>
-        <a href="#home" class="logo">
-            <img src="images/ChatGPT Image Jan 22, 2026, 01_20_47 AM (1).png" alt="VentShield Logo" class="logo-img">
-        </a>
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-               <li><a href="#contact">Contact Us</a></li>
-                
-                <li><button id="authBtn" class="btn-quote" onclick="openAuth()">Sign Up</button></li>
-            </ul>
-            
-        </nav>
-      
-    </header>
+  <header>
+    <a href="#home" class="logo">
+        <img src="images/PureVent_Services_HVAC_logo_design-removebg-preview.png" alt="VentShield Logo" class="logo-img">
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <nav id="nav-menu" class="desktop-only">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li><button id="authBtn" class="btn-quote" onclick="openAuth()">Sign Up</button></li>
+        </ul>
+    </nav>
+    
+    <!-- Mobile Sign Up Button (Visible Only on Mobile) -->
+    <button id="mobileAuthBtn" class="btn-quote mobile-signup-btn" onclick="openAuth()">
+        <i class="fas fa-user-plus"></i> Sign Up
+    </button>
+</header>
 
     <section class="hero" id="home">
         <video autoplay muted loop playsinline class="hero-video">
@@ -1409,7 +1576,6 @@ function scrollToQuote() {
 
 </body>
 </html>
-
 
 
 
